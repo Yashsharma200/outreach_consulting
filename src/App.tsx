@@ -65,10 +65,6 @@ function ContactForm() {
   const [status, setStatus] = useState<{ok:boolean;message:string}|null>(null);
   async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    if (WEB3FORMS_ACCESS_KEY === 'YOUR_WEB3FORMS_ACCESS_KEY') {
-      setStatus({ok:false,message:'Form setup required: add your Web3Forms access key in src/App.tsx.'});
-      return;
-    }
     const form = event.currentTarget;
     const payload = new FormData(form);
     payload.append('access_key', WEB3FORMS_ACCESS_KEY);
